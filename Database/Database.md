@@ -124,3 +124,161 @@
 - `UPDATE cities SET population=100 WHERE name='Tokyo';`
 
 > SET will update the column value with the assigned value
+
+## DELETING Records
+
+- `DELETE FROM tablename WHERE condtion to specify that record`
+- EX : `DELETE FROM phones WHERE manufacturer='Samsung';`
+
+# DATABASE Design.
+
+- TABLE for USERs
+- TABLE for PHOTOS
+- TABLE for COMMENTS
+- TABLE for LIIKES
+  `SQL Schema upvote downvote system`
+
+# Types of Relationship
+
+## One to Many and Many to one
+
+1. A user has many photos `ONE to MANY R/S`
+
+   - A Photo has many comments `ONE TO MANY R/S`
+   - Boat can have many crew members
+   - School can have many students
+   - Company can have many employees
+
+2. **VERY IMPORTANT** The many side of a relatioship will get the foreign key column from one table.
+   - photo table will have comments foreign key
+   - boat table will have crew members foreign key
+   -
+
+## One to One
+
+1. A Boat can have one Captain
+   - A Company and can have one CEO
+   - A Country can have one Capital
+   - A Person can have only one aadhar no
+
+## Many to Many
+
+1. Many students attends many classes
+   - A task has many engg and a single engg can be working on many taks
+   - A game can have many players and there many matches having many players
+   - A movie an have many actors and actor can also act in many movies
+
+## Primary keys
+
+- used to identify the individal record in the table and it will be unq in the table
+
+## Foriegn Key
+
+- Relate a record from one table to another table
+- `boat_id INTEGER REFERENCES boats(id)`
+- nameofcol datatye REFERENCES tableName(columnName)
+
+### CONSTRAINTS
+
+1.  photo has a r/s with user which dosent exits **WILL THROW ERROR**
+
+2.  Photo has r/s with user but user deleted his accounts
+
+    - DELETE his photos
+    - Store photos and rreplace relation id FK with NULL
+    - which says this photo belongs to noone.
+
+3.  DELETE
+
+    - ON DELETE RESTRICT will throw erro
+    - ON DELETE DONOTHING WIL;L THOW ERROR
+    - ON DELETE CASCADE delete all data w.r.t to tyhat user
+    - ON DELETE SET NULL set null in fk place
+    - ON DELETE SET DEFAULT SET SOME DEFAULT VALUE
+
+    EX:
+
+          CREATE TABLE threads (
+          id SERIAL PRIMARY KEY,
+          title VARCHAR(50),
+          body VARCHAR(5000)
+          );
+
+          CREATE TABLE replies (
+          id SERIAL PRIMARY KEY,
+          body VARCHAR(150),
+          thread_id INTEGER REFERENCES threads(id) ON DELETE CASCADE
+          );CREATE TABLE threads (
+          id SERIAL PRIMARY KEY,
+          title VARCHAR(50),
+          body VARCHAR(5000)
+          );
+
+          CREATE TABLE replies (
+          id SERIAL PRIMARY KEY,
+          body VARCHAR(150),
+          thread_id INTEGER REFERENCES threads(id) ON DELETE CASCADE
+          );
+
+# JOINS & AGGREGATION
+
+- JOINS produces values by merging rows from tables
+- use a join when asked to find data that involves mutiple resources
+
+- Aggregations llok at many rows to find out a value
+- for ex: Avg, most, least these words are a sign that you should use aggregation
+
+### For each comment , show the content of the comments and the username who wrote the comment,
+
+> `SELECT contents, username FROM comments JOIN users ON users.id==comments.user_id`
+
+> `SELECT username,contents FROM users,JOIN comments users.id=comments.user_id`
+
+- frist FROM users will run
+- then another table will be joined with users
+- a condition users.id= comments.id
+- from result give only username and content
+
+- `SELECT contents,url FROM comments JOIN photos ON comments.photo_id=photos.id`
+
+## JOIN alternate syntax
+
+1. Table order between **FROM** and **JOIN** frequently makes a diff
+
+   - FROM comments first we are taking comments table and JOINING phtots table
+
+2. we must give context if column names collide
+
+   - `SELECT photos.id,comments.id FROM comments JOIN phtots ON comments.photo_id=photos.id`
+   - `SELECT photos.id AS PID,comments.id FROM comments JOIN phtots ON comments.photo_id=photos.id`
+   - `SELECT P.id AS P_id,comments.id FROM comments JOIN phtots AS P ON comments.photo_id=P.id`
+
+3. The above join will not give data which is not related to any user
+
+## Types of JOINS
+
+> Default join is a INNER JOIN
+
+1.  INNER JOIN. ( Give me all the rows where condition is true)
+2.  LEFT OUTER JOIN (Give me all rows from left table and only rows from right table where condition is true)
+    - if anything from photos table is not matching from users table we are not going to drop it off
+    - ex; photos not related with any user
+    - if a photo has null then that row will be included and the values for other rows will be filled with NULL
+3.  RIGHT OUTER JOIN (Give me all rows from right table and only rows from left table where condition is true)
+    - if anything from users table is not matching from photos table we are not going to drop it off
+    - ex; if a user has no photos
+    <!-- - if a uf   has null then that row will be included and the values for other rows will be filled with NULL -->
+4.  FULL JOIN. (Give me all rows from both table whether condition is true/false)
+5.  ORDER of table matters **_IMPORTANT_**
+6.  FROM JOIN WHERE is should be used to filter out joined data not FROM WHERE JOIN
+
+## THREE WAY JOIN
+
+> JOIN 3 DIFFERENT TABLES
+
+- comments has photo_id and user_id fk
+- phtos has user_id fk
+- comments.user_id=photo.user_id=users.id
+  `SELECT * FROM comments JOIN photos ON photos.user_id=comments.user_id JOIN users ON photos.user_id=users.id AND comments.user_id=user.id`
+
+  `SELECT title,name,rating FROM reviews JOIN books ON reviews.book_id= books.id JOIN authors ON reviews.reviewer_id=authors.id AND books.author_id=authors.id;`
