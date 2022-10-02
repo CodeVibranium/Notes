@@ -282,3 +282,42 @@
   `SELECT * FROM comments JOIN photos ON photos.user_id=comments.user_id JOIN users ON photos.user_id=users.id AND comments.user_id=user.id`
 
   `SELECT title,name,rating FROM reviews JOIN books ON reviews.book_id= books.id JOIN authors ON reviews.reviewer_id=authors.id AND books.author_id=authors.id;`
+
+# GROUPING and AGGREGATES
+
+## GROUPING
+
+> Reduces many **rows** down to **fewer rows**. Done by using **GROUP BY** keywords.
+
+> GROUP BY find all the unqiue values and take each row and assign it a different group by user_id,
+
+> IN SIMPLER WORDS,
+
+- first, group by column will find all the unq values in that column.
+- then, all the duplicates values of that column will be grouped under that one column
+- the catch is, your are only allowed to select groupped column not the underlying column, u can only access them by using aggegate func()
+
+> `UNIQUE USER ID | id | content | user_id | photo_id`
+
+- `SELECT user_id FROM comments GROUP BY user_id`
+- **VERY IMPORTANT**`SELECT name FROM phones GROUP BY manufacturer;`.
+  > The above query will result in an error bec we are directly selecting a unnderlying column instead of a grouped column
+
+## AGGREGATES
+
+1.  MAX(columnname)
+2.  SUM(columnanme)
+3.  COUNT(columnanme) return no of values
+    - null values are not count by default
+4.  MIN(columnanme)
+5.  AVG(columnanme)
+    **Only aggregate function can access underlying column of a groupped column**
+
+> While using aggregate function on select and other columns will throw err
+
+       - for ex: `SELECT SUM(revenue) FROM balancesheet  `
+        - for ex: `SELECT SUM(revenue),name from balancesheet`
+
+> Reduces many **VALUES** down to one
+
+> Done using **Aggregate** functions
