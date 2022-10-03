@@ -321,3 +321,70 @@
 > Reduces many **VALUES** down to one
 
 > Done using **Aggregate** functions
+
+## Sorting
+
+**ORDER BY** columnName default **ASC** optionally we can use **DESC**
+ORDER BY two columns
+ex `ORDER BY column1, column2` column2 will be sorted based on column1 like havinmg duplicate values will sort column2
+ORDER BY can also sort **Alphabetically**
+
+## OFFSET
+
+Skip some no of rows from the result
+`OFFSET 2`;
+
+## LIMIT
+
+Limit the no of records from the resukt.
+`LIMIT 2` showing top two scorers etc...
+
+## SET OPERATORS
+
+> JOIN two differnt sets of data the catch is both data sets must have same columnName with same datatype
+
+### UNION
+
+- JOIN together the results of two queries and remove duplicate data
+  `(Query1) UNION (Query2)`
+
+### UNION ALL
+
+- dosent remove duplicates
+
+### INTERSECT
+
+- Find the common rows in the results of two data sets Remove duplicates
+
+### EXCEPT
+
+- Find the rrows that are present in first query but not present in second query so if any common value exist in 2nd query the common row from query 1 will be deleted
+
+### INTERSECT and EXCEPT ALL
+
+- Dosent remove duplicates
+
+## SUB QUERIES
+
+> query>(sub query)
+
+- a sub query will run first and then the later query
+
+- while writing sub query it is important to know what will be returned from the query
+- they donot have semicolon at the end of sub query
+
+### Sub query in a SELECT clause
+
+- **IMPORTANT** while writing a subquery in select make sure the subquery returns only a single value
+- a subquery that returns a single value can be used inside of a select statment
+- fo ex: `select name, price , price/(select max(price) from phones) as price_ratio from phones;`
+
+### Sub query in a FROM clause
+
+for ex: `select name , price_ratio from (select name, price/weight as price_ratio frpm phones) as p where prce_ratio > 5`
+
+- The sub query in a from clause must return a table like structure it should have all the columns from select
+- The outer select must be compatible by the result of the subquery executed in FROM clause
+- Sub query in FROM must have an alias (as P)
+
+### Sub query in a JOIN clause
