@@ -20,4 +20,42 @@
 
 ## Enviorment setup
 
-1. npm i -g typescript ts-node (one time).
+1. `npm i -g typescript ts-node` (one time).
+
+## Types
+
+> Easy way to refer to the different properties + functions that a value has
+> value are something which can be assignable
+> Primitive data type
+
+1. string
+2. number
+3. boolean
+4. symbol
+5. void
+6. null
+7. undefined
+8. date
+
+> Object type
+
+1. object
+2. array
+3. function
+4. classes
+
+## TS uses types to analyze errors and allows other engg to know what values are flowing aroun our codebase
+
+## Type Annotations
+
+> code we add to tell TS what type of value a variable will refer to
+> When to use annotations
+
+1. Function that returns any type
+2.
+
+## Type Inference
+
+> TS tries to figure out what type of value a variable refers to
+
+## ANY tpe

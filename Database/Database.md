@@ -388,3 +388,13 @@ for ex: `select name , price_ratio from (select name, price/weight as price_rati
 - Sub query in FROM must have an alias (as P)
 
 ### Sub query in a JOIN clause
+
+> Any subquery that returns data compatible with the **ON** Clause
+> LIST of OPERATOR used in WHERE clause
+> can retrun single column values
+
+### Sub query in a WHERE clause
+
+![Where caluse](./Where.png)
+
+> Ex: Give me all the department where unpaid students are there
