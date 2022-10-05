@@ -28,6 +28,8 @@
 
 - `django-admin startproject projectname` or `django-admin startproject projectname .`
   > will create a django project
+- `pip install -r requirements.txt`
+  > will install all the packages required
 
 # Django Project
 
