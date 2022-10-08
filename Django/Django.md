@@ -176,11 +176,16 @@
 > we can do that while declaring the route itself
 > after proving the view you can write the name for tyhe url
 > `path(/products/<int:id?,views.xyz,name="product_details")`
+
+> ` <a href="{% url 'detail_view' item.id%}"> {{item.id}} {{item.name}} </a>`
 > lec 37 HArdocded URLS
 
 ## Namespacing URLS
 
-> Required (Best practices) can create a differnce between differnt url name
+> Required (Best practices) can create a differnce between differnt url name of different apps
+> in view create `app_name='appName'`
+
+> ` <a href="{% url 'appName:detail_view' item.id%}"> {{item.id}} {{item.name}} </a>`
 > lec:38
 
 ## Adding css and tailwind to templates
