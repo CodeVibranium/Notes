@@ -80,8 +80,8 @@
 ### WHERE
 
 - `SELECT name, area FROM cities HWERE area>4000`
-- TO understand what happends when this query hits db engine
-  it divides the query int o parts and executes them ina order
+- T0 understand what happends when this query hits db engine
+  it divides the query into parts and executes them in a order
 
   like this
 
@@ -112,9 +112,9 @@
 
 > To do a multiple comparison we use the AND operator and the OR operator
 
-- EX `SELECT * FROM cities WHERE are NOT IN(1200,8000) AND name!='DELHI`. Here we saying give me all the records where area is not 1200 and area is not 8000 and the name in that record should not be delhi
+- EX `SELECT * FROM cities WHERE area NOT IN(1200,8000) AND name!='DELHI`. Here we saying give me all the records where area is not 1200 and area is not 8000 and the name in that record should not be delhi
 
-- EX `SELECT * FROM cities WHERE are NOT IN(1200,8000) OR name='DELHI`. Here we saying give me all the records where area is not 1200 and area is not 8000 or the name in that record should be delhi
+- EX `SELECT * FROM cities WHERE area NOT IN(1200,8000) OR name='DELHI`. Here we saying give me all the records where area is not 1200 and area is not 8000 or the name in that record should be delhi
 
 - `SELECT name, manufacturer FROM phones WHERE manufacturer= 'Apple' OR manufacturer='Samsung'`
 - `SELECT name, manufacturer FROM phones WHERE manufacturer IN ('Apple','Samsung')`
@@ -150,13 +150,14 @@
    - Company can have many employees
 
 2. **VERY IMPORTANT** The many side of a relatioship will get the foreign key column from one table.
-   - photo table will have comments foreign key
-   - boat table will have crew members foreign key
-   -
+   - Comments table will have foreign key from photo table
+   - Crew members table will have foreign key from boat table
 
 ## One to One
 
-1. A Boat can have one Captain
+A One to one relationship table is similar to one to many r/s table, the key differnce is **_A One to one R/S table will have unique foriegn key where as a one to many r/s table will not have unq foriegn keys_**
+
+1. A Boat can have one Captain (In captain table, boat fk will be added but that fk will be comletely unq to the table, it means a boat of x can only have y captain)
    - A Company and can have one CEO
    - A Country can have one Capital
    - A Person can have only one aadhar no
@@ -190,25 +191,15 @@
 
 3.  DELETE
 
-    - ON DELETE RESTRICT will throw erro
-    - ON DELETE DONOTHING WIL;L THOW ERROR
-    - ON DELETE CASCADE delete all data w.r.t to tyhat user
+    - ON DELETE RESTRICT will throw error
+    - ON DELETE DONOTHING WILL THOW ERROR
+    - ON DELETE CASCADE delete all data w.r.t to that user
     - ON DELETE SET NULL set null in fk place
     - ON DELETE SET DEFAULT SET SOME DEFAULT VALUE
 
     EX:
 
           CREATE TABLE threads (
-          id SERIAL PRIMARY KEY,
-          title VARCHAR(50),
-          body VARCHAR(5000)
-          );
-
-          CREATE TABLE replies (
-          id SERIAL PRIMARY KEY,
-          body VARCHAR(150),
-          thread_id INTEGER REFERENCES threads(id) ON DELETE CASCADE
-          );CREATE TABLE threads (
           id SERIAL PRIMARY KEY,
           title VARCHAR(50),
           body VARCHAR(5000)
@@ -234,7 +225,7 @@
 
 > `SELECT username,contents FROM users,JOIN comments users.id=comments.user_id`
 
-- frist FROM users will run
+- First FROM users will run
 - then another table will be joined with users
 - a condition users.id= comments.id
 - from result give only username and content
@@ -250,7 +241,9 @@
 2. we must give context if column names collide
 
    - `SELECT photos.id,comments.id FROM comments JOIN phtots ON comments.photo_id=photos.id`
+
    - `SELECT photos.id AS PID,comments.id FROM comments JOIN phtots ON comments.photo_id=photos.id`
+
    - `SELECT P.id AS P_id,comments.id FROM comments JOIN phtots AS P ON comments.photo_id=P.id`
 
 3. The above join will not give data which is not related to any user
@@ -313,6 +306,8 @@
 5.  AVG(columnanme)
     **Only aggregate function can access underlying column of a groupped column**
 
+> > ## **_WHY?_**
+
 > While using aggregate function on select and other columns will throw err
 
        - for ex: `SELECT SUM(revenue) FROM balancesheet  `
@@ -326,7 +321,8 @@
 
 **ORDER BY** columnName default **ASC** optionally we can use **DESC**
 ORDER BY two columns
-ex `ORDER BY column1, column2` column2 will be sorted based on column1 like havinmg duplicate values will sort column2
+
+ex `ORDER BY column1, column2` column2 will be sorted based on column1 like having duplicate values will sort column2
 ORDER BY can also sort **Alphabetically**
 
 ## OFFSET
@@ -336,21 +332,22 @@ Skip some no of rows from the result
 
 ## LIMIT
 
-Limit the no of records from the resukt.
+Limit the no of records from the result.
 `LIMIT 2` showing top two scorers etc...
 
 ## SET OPERATORS
 
-> JOIN two differnt sets of data the catch is both data sets must have same columnName with same datatype
+> JOIN two different sets of data the catch is both data sets must have same columnName with same datatype
 
 ### UNION
 
 - JOIN together the results of two queries and remove duplicate data
   `(Query1) UNION (Query2)`
+- Ex: Olympic games winner from last year and this year
 
 ### UNION ALL
 
-- dosent remove duplicates
+- dosent remove duplicate unions
 
 ### INTERSECT
 
@@ -358,11 +355,13 @@ Limit the no of records from the resukt.
 
 ### EXCEPT
 
-- Find the rrows that are present in first query but not present in second query so if any common value exist in 2nd query the common row from query 1 will be deleted
+- Find the rows that are present in first query but not present in second query so if any common value exist in 2nd query the common row from query 1 will be deleted
 
 ### INTERSECT and EXCEPT ALL
 
 - Dosent remove duplicates
+
+> > ### **_What is the difference b/w UNION & INTERSECT_**
 
 ## SUB QUERIES
 
@@ -370,12 +369,13 @@ Limit the no of records from the resukt.
 
 - a sub query will run first and then the later query
 
-- while writing sub query it is important to know what will be returned from the query
+- while writing sub query **_it is important to know what will be returned from the query_**
 - they donot have semicolon at the end of sub query
 
 ### Sub query in a SELECT clause
 
-- **IMPORTANT** while writing a subquery in select make sure the subquery returns only a single value
+> **IMPORTANT** while writing **_a subquery in select make sure the subquery returns only a single value_**
+
 - a subquery that returns a single value can be used inside of a select statment
 - fo ex: `select name, price , price/(select max(price) from phones) as price_ratio from phones;`
 
@@ -383,7 +383,8 @@ Limit the no of records from the resukt.
 
 for ex: `select name , price_ratio from (select name, price/weight as price_ratio frpm phones) as p where prce_ratio > 5`
 
-- The sub query in a from clause must return a table like structure it should have all the columns from select
+> **_The sub query in a from clause must return a table like structure it should have all the columns from select_**
+
 - The outer select must be compatible by the result of the subquery executed in FROM clause
 - Sub query in FROM must have an alias (as P)
 

@@ -70,7 +70,7 @@
 
 **Create a App**
 
-> `python mamage.py startapp myapp`
+> `python manage.py startapp myapp`
 
 # Significance of app dir and files
 
