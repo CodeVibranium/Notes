@@ -6,6 +6,8 @@
 2. Concurrency
 3. Threading and Thread pool
 4. Streams
+5. Events
+6. Prototype
 
 ## Nodejs Courses
 
