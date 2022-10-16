@@ -3,6 +3,12 @@
 A runtime for js
 Node.js is a c++ program with v8 embedded
 
+## Difference between Broswer JS and NODE JS
+
+When working node js we will have no access of BROWSER API.
+A node js app contains only core logic.
+A node app is completely based on our node js version
+
 ## Node Core
 
 Ecmascript dosent talk about js accessing DOM elements and manipulating DOM elements
@@ -20,6 +26,8 @@ AJAX request and other functions are added to js in browser by the browser and t
 
 ## How node modules work
 
+Where you require the code you are actually invoking the code written in that file
+
 > Require's are cached
 > Encapsulation can be done using modules
 > for ex
@@ -33,4 +41,14 @@ function encryptPassword(password) {
 module.exports = { encryptPassword };
 ```
 
-From tha bove example secret key and hasPassword function has not been revbelaled to the user
+From the bove example secret key and hasPassword function has not been revbelaled to the user
+
+## Differnt Ways to exporting modules
+
+1. As an Object
+   - ` module.exports = { encryptPassword };`
+2. Default Export
+   - `module.export =greet`
+3. Export as you go
+   - `module.export.items=[1,2 ]`
+   - `module.export.person=persionData`
