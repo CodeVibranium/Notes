@@ -52,3 +52,15 @@ From the bove example secret key and hasPassword function has not been revbelale
 3. Export as you go
    - `module.export.items=[1,2 ]`
    - `module.export.person=persionData`
+
+## How node is made
+
+![How node works](./Node.png)
+
+In nodejs source code
+
+- lib folder is all the JS defination, function , the js side of the project . JS World
+- src folder, c++ implementation of those definations and function.
+  In this folder node pull libuv, and v8 engine to run code.
+
+## Every iteration of eventloop is called a TICK
