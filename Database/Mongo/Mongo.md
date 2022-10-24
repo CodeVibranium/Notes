@@ -277,3 +277,25 @@ If you want store only lates 5 reviews
 ## Driver
 
 - `npm i mongodb`
+
+## Connect to mongodb from local
+
+```js
+const { MongoClient } = require("mongodb");
+let dbConnection;
+function connectToDB(cb) {
+  MongoClient.connect("mongodb://localhost:27017/dbName")
+    .then((client) => {
+      // client represent the client we have created
+      dbConnection = client.db(); // returns a db connectiomn
+      return cb();
+    })
+    .catch((err) => {
+      console.log(err);
+      return cb(err);
+    });
+}
+function getDB() {
+  return dbConnection;
+}
+```
