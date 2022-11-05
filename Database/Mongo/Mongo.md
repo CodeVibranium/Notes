@@ -35,25 +35,128 @@ A document can have properties whose values themselves can be a document called 
 ## Find Docs
 
 10. `db.collectionNAme.find()` lists out first 20 documents inside the db
-11. `it` to get next 20 after the command has complete it stands for iterate
-12. `db.books.find({author:"ALI"})` it finds all the dopcumnets in the db where author is ALI
-13. `db.books.find({author:"ALI",rating:5})` it finds all the documents where author is ali and rating is 5
-14. `db.books.find({filter},{what to retrieve from that filtered data})`
+11. `db.collectionName.find().pretty()` this will make the outcome/result formatted.
+12. `it` to get next 20 after the command has complete it stands for iterate
+13. `db.books.find({author:"ALI"})` it finds all the dopcumnets in the db where author is ALI
+14. `db.books.find({author:"ALI",rating:5})` it finds all the documents where author is ali and rating is 5
+15. `db.books.find({filter},{what to retrieve from that filtered data (projection)})`
     ex:
     `db.books.find({author:"ALI"},{title:1,rating:1})`
     `db.books.find({},{title:1,author:1})` only get title and author from all documents.
-15. `db.books.findOne({_id:ObjectId(value)})`
-16. `db.books.find().count()` counts the number of books
-17. `db.books.find({author:"ALI"}).count()` counts the number of books written by ali
-18. `db.books.find().limit(3)` limits the number of results to 3
-19. `db.books.find().sort({title:1})` gets all the documents and sorts all the documnets w.r.t title value in asc.
-20. `db.books.find().sort({title:-1})` gets all the documents and sorts all the documnets w.r.t title value in desc.
+16. `db.books.findOne({_id:ObjectId(value)})`
+17. `db.books.find().count()` counts the number of books
+18. `db.books.find({author:"ALI"}).count()` counts the number of books written by ali
+19. `db.books.find().limit(3)` limits the number of results to 3
+20. `db.books.find().sort({title:1})` gets all the documents and sorts all the documnets w.r.t title value in asc.
+21. `db.books.find().sort({title:-1})` gets all the documents and sorts all the documnets w.r.t title value in desc.
+
+## Deleting Documents
+
+1. deleteOne()
+
+   ```js
+   db.books.deleteOne({ _id: "ID" });
+   ```
+
+   The field id can be any field, but id is the best to use.
+
+2. deleteMany()
+
+   ```js
+   db.books.deleteMany({ author: "Shahed" });
+   ```
+
+   The will delete all books whose author was Shahed
+
+   ```js
+   db.books.deleteMany({ author: { $in: ["ali", "rizwan"] } });
+   ```
+
+   the operation will delete all the books where author is eiter ali or rizwan
+
+## Update
+
+1. updateOne()
+
+   ```js
+   db.books.updateOne({ whichBookToUpdate }, { $set: { rating: 5 } });
+   db.books.updateOne({ _id: "ID" }, { $set: { rating: 5, pages: 360, title: "NEW NAME" } });
+   ```
+
+   This operation will find the book by that id and will update the rating and pages value of that book only.
+
+2. updateMany()
+
+   ```js
+   db.books.updateMany({ author: "autnorName" }, { $set: { authorName: "authorname" } });
+   ```
+
+   this operation will find all the books writtebn by author name and update the anuthorName field by the value
+
+   ```js
+   db.books.updateMany({}, { price: 999 });
+   ```
+
+   This operation will update all the books with price of 999
+
+3. update()
+   ```js
+   db.books.update({_id:"ID",{title:"HELLO",page:500}})
+   ```
+   This operation dosent require the `$set` to update the fileds, just add the fields and current value will be updated and others will be removed.
+4. replaceOne()
+
+   ```js
+   db.bboks.replaceOne({id:"ID"},{new Data obj})
+   ```
+
+   This operation will remove all the previous data related with that id with a new data
+
+5. updateMany()
+
+6. Increment Operator
+
+   ```js
+   db.books.updateMany({ author: "autnorName" }, { $inc: { pages: 2 } });
+   ```
+
+   this operation will find all the books written by authoranme and increment the pages value 2 and updates it
+
+7. Decrement operator
+
+   ```js
+   db.books.updateMany({ author: "autnorName" }, { $inc: { pages: -2 } });
+   ```
+
+   this operation will find all the books written by authoranme and decrement the pages value 2 and updates it
+
+8. Pull operator (can pull one only)
+
+   ```js
+   db.books.updateOne({ _id: "ID" }, { $pull: { genres: "fantasy" } });
+   ```
+
+   This operation will remove fantasy value from the array inside the id document.
+
+9. Push operator (can push one only)
+
+   ```js
+   db.books.updateOne({ _id: "ID" }, { $push: { genres: "fantasy" } });
+   ```
+
+   This operation will add "fantasy" value from the array inside the id document.
+
+10. Each Operator (can add/remove multiple at once)
+    ```js
+    db.books.updateOne({ _id: "ID" }, { $push: { genres: { $each: ["a", "b", "c"] } } });
+    ```
+    This operation will a,b,c to the generes field on the id document
 
 ## Nested documents
 
 ![Nested Documents](./NestedDocuments.png)
 Nested documents can improve read performance as youdont need to issue two commands to get data from two table (reviews and books)
-
+Each document can be nested 100 levels deep and a document size cannot exceed 16mb.
 ex:
 
 ```js
@@ -86,7 +189,7 @@ db.books.insertOne({
 
 If you want store only lates 5 reviews
 
-## Operators and queries
+## Operators and queries $ -> ATOMIC Operators
 
 **$gt**
 
@@ -193,87 +296,6 @@ If you want store only lates 5 reviews
    - while quering for values inside the nested array of objects use
      dot notation `reviewers.name`
 
-## Deleting Documents
-
-1. deleteOne()
-
-   ```js
-   db.books.deleteOne({ _id: "ID" });
-   ```
-
-   The field id can be any field, but id is the best to use.
-
-2. deleteMany()
-
-   ```js
-   db.books.deleteMany({ author: "Shahed" });
-   ```
-
-   The will delete all books whose author was Shahed
-
-   ```js
-   db.books.deleteMany({ author: { $in: ["ali", "rizwan"] } });
-   ```
-
-   the operation will delete all the books where author is eiter ali or rizwan
-
-## Update
-
-1. updateOne()
-
-   ```js
-   db.books.updateOne({ whichBookToUpdate }, { $set: { rating: 5 } });
-   db.books.updateOne({ _id: "ID" }, { $set: { rating: 5, pages: 360, title: "NEW NAME" } });
-   ```
-
-   This operation will find the book by that id and will update the rating and pages value of that book only.
-
-2. updateMany()
-
-   ```js
-   db.books.updateMany({ author: "autnorName" }, { $set: { authorName: "authorname" } });
-   ```
-
-   this operation will find all the books writtebn by author name and update the anuthorName field by the value
-
-3. Increment Operator
-
-   ```js
-   db.books.updateMany({ author: "autnorName" }, { $inc: { pages: 2 } });
-   ```
-
-   this operation will find all the books written by authoranme and increment the pages value 2 and updates it
-
-4. Decrement operator
-
-   ```js
-   db.books.updateMany({ author: "autnorName" }, { $inc: { pages: -2 } });
-   ```
-
-   this operation will find all the books written by authoranme and decrement the pages value 2 and updates it
-
-5. Pull operator (can pull one only)
-
-   ```js
-   db.books.updateOne({ _id: "ID" }, { $pull: { genres: "fantasy" } });
-   ```
-
-   This operation will remove fantasy value from the array inside the id document.
-
-6. Push operator (can push one only)
-
-   ```js
-   db.books.updateOne({ _id: "ID" }, { $push: { genres: "fantasy" } });
-   ```
-
-   This operation will add "fantasy" value from the array inside the id document.
-
-7. Each Operator (can add/remove multiple at once)
-   ```js
-   db.books.updateOne({ _id: "ID" }, { $push: { genres: { $each: ["a", "b", "c"] } } });
-   ```
-   This operation will a,b,c to the generes field on the id document
-
 ## Driver
 
 - `npm i mongodb`
@@ -299,3 +321,46 @@ function getDB() {
   return dbConnection;
 }
 ```
+
+## How mongo works
+
+Your drivers/mongo shell talk to mongodb server, this server then talks to storage engine to communicate (read/write) to the files.
+
+When storage engine write and reads data it loads that data in memory and write the data into files (HDD)
+
+Data stored inside the db is in **BSON** fromat
+
+> BSON => Binary JSON
+> The reason to store BSON data is more efficient
+> and to support other data types
+> suchas Object, bigInt etc...
+> Helps in omiting quotes for key names unless key contains empty spaces
+
+In Mongo db there is no need to store same type of data in a collection.
+
+Two different documents inside a collection can have two differnt schema's
+
+## CRUD
+
+![CRUD methods](./CRUD.png)
+
+## find cursor
+
+Find by default will not give all doc bny default, it will give the first 20
+
+```js
+db.passengers.find().forEach(document=>{clg(document)})\\
+```
+
+Even loop will get data when you reach the last one
+
+## Projection
+
+Filter the data with find and send only the data you need to send.
+ex: names of every student who passed (not his marks, height,weight,etc)
+
+`db.students.find({},{name:1})` this operation will find all the documents and only give the name from all the documents
+
+## File relations
+
+## How to find nested object from findMany({},{nestedObject})

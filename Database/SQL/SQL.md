@@ -216,8 +216,14 @@ A One to one relationship table is similar to one to many r/s table, the key dif
 - JOINS produces values by merging rows from tables
 - use a join when asked to find data that involves mutiple resources
 
-- Aggregations llok at many rows to find out a value
+- Aggregations look at many rows to find out a value
 - for ex: Avg, most, least these words are a sign that you should use aggregation
+
+SYNTAX
+
+```sql
+SELECT columnname, columnname FROM table1 JOIN table2 ON table1.someid=table2.someid
+```
 
 ### For each comment , show the content of the comments and the username who wrote the comment,
 
@@ -399,3 +405,200 @@ for ex: `select name , price_ratio from (select name, price/weight as price_rati
 ![Where caluse](./Where.png)
 
 > Ex: Give me all the department where unpaid students are there
+
+some ex:
+
+```sql
+SELECT
+  name
+FROM
+  products
+WHERE
+  department not in (
+    select
+      department
+    FROM
+      products
+    WHERE
+      price < 100
+  )
+```
+
+## ALL
+
+![ALL & Some](./All%26Some.png)
+
+```sql
+SELECT
+  name,
+  department,
+  price
+FROM
+  products
+WHERE
+  price > ALL(
+    SELECT
+      price
+    WHERE
+      department = 'industrial'
+  )
+```
+
+## SOME is an alias to ANY operator
+
+![ANY/SOME](./ANY.png)
+Ex:1
+
+```sql
+SELECT
+  name,
+  department,
+  price
+FROM
+  products
+WHERE
+  price > SOME(
+    SELECT
+      price
+    WHERE
+      department = 'industrial'
+  )
+```
+
+```sql
+SELECT
+  name,
+  department,
+  price
+FROM
+  products
+WHERE
+  price > ANY(
+    SELECT
+      price
+    WHERE
+      department = 'industrial'
+  )
+```
+
+Ex:2
+
+```sql
+SELECT
+  name
+FROM
+  phones
+WHERE
+  price > ALL(
+    SELECT
+      price
+    FROM
+      phones
+    WHERE
+      manufacturer = 'Samsung'
+  );
+```
+
+## Correlated queries
+
+```sql
+SELECT
+  name,
+  department,
+  price
+FROM
+  products as p1
+WHERE
+ price=(
+    SELECT
+      MAX(price)
+    FROM
+      products as p2
+    WHERE p2.department=p1.department
+  );
+```
+
+## SELECT whithout FROM
+
+![SELECT Without FROM](./SelectWithoutFROM.png)
+
+```sql
+SELECT
+  (
+    SELECT
+      MAX(price) as max_price,
+      MIN(price) as min_price,
+      AVG(price) as avg_price
+    FROM
+      Phones
+  )
+```
+
+```sql
+ SELECT
+      MAX(price) as max_price,
+      MIN(price) as min_price,
+      AVG(price) as avg_price
+    FROM
+      Phones
+```
+
+## Unique records
+
+DISTINCt key word
+`Select DISTINCT department from products`
+
+SELECT COUNT (DISTINCT depatments) from departments
+In place of distint GROUP by can be used but not the vice versa.
+
+COUNT will not work if you select distint columns
+
+```sql
+SELECT
+  COUNT(DISTINCT manufacturers)
+FROM
+  phones
+```
+
+## Greatest values among the list of values
+
+SELECT GREATEST(200,300,100)
+SYNTAX
+
+GREATEST(of, values)
+GREATEST(20,age) this means take greatest in between ( 20 and age)
+
+## LEAST
+
+```sql
+SELECT
+  name,
+  price,
+  LEAST(price * 0.5, 500) as sale_price
+from
+  PRODUCTS
+```
+
+This code says that take the least value from price\*0.5 and 500
+
+## CASE
+
+Lets define if and else condtions in queriess
+Example:
+Print product name, price and description
+Description will be about if price >600 hight, if >300 medium else cheap
+
+```sql
+SELECT
+  name,
+  price,
+  CASE
+    WHEN price > 600 THEN 'high'
+    WHEN price > 300 THEN 'medium'
+    ELSE 'cheap'
+  END
+FROM
+  products
+```
+
+If you doesn't provide what the value should be if condtion doesn't satisfies then value will be null
