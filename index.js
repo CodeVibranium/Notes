@@ -65,3 +65,40 @@ app.post("/add-tour", (req, res) => {
   res.status(201).send("CREATED");
 });
 app.listen(3000, () => console.log("Server started at port 3000"));
+db.users.updateMany(
+  { hobbies: { $elemMatch: { title: "Sports", frequency: { $gte: 3 } } } },
+  { $set: { "hobbies.$.newFiled": true } }
+);
+
+if (STATUS == "DEVELOPMENT") {
+  Routes.applicationGuildCommands(CLIENT_ID, process.env.DEVELOPMENT_GUILD_ID),
+    { body: slashCommands },
+    console.log(
+      chalk.yellow(`Slash Commands • Registered Locally to 
+  the development server`)
+    );
+} else if (STATUS == "PRODUCTION") {
+  await rest.put(
+    Routes.applicationCommands(CLIENT_ID),
+    { body: slashCommands },
+    console.log(chalk.yellow("Slash Commands • Registered Globally"))
+  );
+}
+// find people whose age is < 50 group by gender and find out how many person per gender
+// and the avg age of each gender order
+db.collection.aggregate([
+  {
+    $match: {
+      $or: [
+        { department: "Finance", "user.gender": "Male" },
+        { department: "Finance", "user.gender": "Female" },
+      ],
+    },
+  },
+  {
+    $group: {
+      _id: { gender: "$user.gender" },
+      total: { $sum: 1 },
+    },
+  },
+]);
