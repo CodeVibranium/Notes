@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Hello World
+  </body>
+  <script>
+    async function getLogin() {
+      try {
+        const res = await fetch("https://admin.vsws.co.in/api/accounts/login-verify-email/", {
+          method: "POST",
+          body: JSON.stringify({
+            email: "ramu@beyondscale.tech",
+          }),
+        });
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getLogin();
+
+    async function getDashboardData() {
+      try {
+        const res = await fetch("https://bie-staging-admin.vsws.co.in/api/get-dashboard-data/", {
+          method: "GET",
+          headers: {
+            Authorization:
+              "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMzcxMDQ3LCJqdGkiOiIzZDZiZGE4OWRkZjU0MDY5YjhkODk3MDE3NWI0M2NmMyIsInVzZXJuYW1lIjoiMTAwMS1wcmluY2lwYWwifQ.vGnegHz5bXzQbjmA8-sW7QuxUSqQk9QQji13WE6YVLk",
+          },
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getDashboardData();
+
+    async function getSDG() {
+      try {
+        const res = await fetch(
+          "https://uat-admin.vsws.co.in/api/sdg/heat-map/?survey=adolescent",
+          {
+            method: "GET",
+            headers: {
+              Authorization:
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczMzcyOTUxLCJqdGkiOiIwMzIxNTc3MGRjMjQ0MmVkYjMzMTYzMGNhYjNjZmVlOCIsInVzZXJuYW1lIjoiOTk5OTk5OTk5OSJ9.NssaIWx_r6_aWSKO00AuiWLYpF2K8_WJQ4ZuaqbrEA8",
+            },
+          }
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getSDG();
+    async function getWeiss() {
+      try {
+        const res = await fetch(
+          "https://beta-admin.weissanalytics.com/api/autosuggestions/suggest_combined/?address=123&limit=10&metro_index=metros&property_index=addresses_new&zip_index=zipcodes",
+          {
+            method: "GET",
+          }
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getWeiss();
+  </script>
+</html>
