@@ -13,6 +13,7 @@
   > will create a envname folder
   > activate the env
 - `source bin/activate`
+- `pip freeze` to know all the packages downloaded
 
   > then install django in that env.
 
@@ -96,9 +97,8 @@
 
 > Making migrations is a two step process
 
-> `python manage.py makemigrations`
-
-> `python manage.py migrate`
+> `python manage.py makemigrations` - genrerates migrations files
+> `python manage.py migrate` - applies those migrations and sync database with latest migrations
 
 # ORM
 

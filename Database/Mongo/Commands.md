@@ -354,7 +354,8 @@ it is similar to push but, it cannot add/push duplicate values into the array.
 - $project
 - `db.collection.aggregate()`
 - ```js
-  db.persons.aggregate([
+  db.persons
+    .aggregate([
       { $match: { "dob.age": { $gt: 50 } } },
       {
         $group: {
@@ -378,4 +379,4 @@ it is similar to push but, it cannot add/push duplicate values into the array.
 
 ## Differnce between $project and $group
 
-- is that group takes many documenta combines them and outputs an single documnet where as $projects takes each documnet and updates some data to that documnet
+- is that group takes many documents combines them and outputs an single documnet where as $projects takes each documnet and updates some data to that documnet
