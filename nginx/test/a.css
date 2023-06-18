@@ -1,0 +1,34 @@
+body {
+  background: black !important;
+}
+
+/* .img-div {
+  flex: 1;
+  max-width: 100% !important;
+  max-height: 800px !important;
+  flex-wrap: wrap;
+}
+.img-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.parent {
+  display: flex;
+} */
+
+.img-div {
+  flex: 1;
+  max-width: 100% !important;
+  max-height: 800px !important;
+}
+
+.img-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.parent {
+  display: flex;
+}

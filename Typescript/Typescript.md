@@ -44,7 +44,7 @@
 3. function
 4. classes
 
-## TS uses types to analyze errors and allows other engg to know what values are flowing aroun our codebase
+## TS uses types to analyze errors and allows other engg to know what values are flowing around our codebase
 
 ## Type Annotations
 
@@ -57,5 +57,3 @@
 ## Type Inference
 
 > TS tries to figure out what type of value a variable refers to
-
-## ANY tpe

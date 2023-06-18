@@ -4,3 +4,5 @@ NeedToLearn
 *.png
 Summary.md
 SystemDesign
+build
+dist
