@@ -1,0 +1,18 @@
+version: "3"
+# Tell which version of docker compose we wnat to use for this file
+services:
+  # Services here a somewhat a type of container
+  redis-server:
+    image: "redis"
+    restart: always
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "3000:3001"
+    depends_on:
+      - redis-server
+    # - in a yml file means an array
+  # Just by defing these serveices inside the services docker compose is going to
+  # automatically create both these containers on same network and both will have free
+  # access to communicate with each other
