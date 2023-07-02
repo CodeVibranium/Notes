@@ -85,9 +85,9 @@
 
   like this
 
-  1.  FROM cities
-  2.  WHERE area > 4000
-  3.  SELECT name, area
+  1. FROM cities
+  2. WHERE area > 4000
+  3. SELECT name, area
 
 ### Comparison operators used with WHERE
 
@@ -130,7 +130,7 @@
 - `DELETE FROM tablename WHERE condtion to specify that record`
 - EX : `DELETE FROM phones WHERE manufacturer='Samsung';`
 
-# DATABASE Design.
+## DATABASE Design
 
 - TABLE for USERs
 - TABLE for PHOTOS
@@ -138,7 +138,7 @@
 - TABLE for LIIKES
   `SQL Schema upvote downvote system`
 
-# Types of Relationship
+## Types of Relationship
 
 ## One to Many and Many to one
 
@@ -225,7 +225,7 @@ SYNTAX
 SELECT columnname, columnname FROM table1 JOIN table2 ON table1.someid=table2.someid
 ```
 
-### For each comment , show the content of the comments and the username who wrote the comment,
+### For each comment , show the content of the comments and the username who wrote the comment
 
 > `SELECT contents, username FROM comments JOIN users ON users.id==comments.user_id`
 
@@ -258,18 +258,18 @@ SELECT columnname, columnname FROM table1 JOIN table2 ON table1.someid=table2.so
 
 > Default join is a INNER JOIN
 
-1.  INNER JOIN. ( Give me all the rows where condition is true)
-2.  LEFT OUTER JOIN (Give me all rows from left table and only rows from right table where condition is true)
-    - if anything from photos table is not matching from users table we are not going to drop it off
-    - ex; photos not related with any user
-    - if a photo has null then that row will be included and the values for other rows will be filled with NULL
-3.  RIGHT OUTER JOIN (Give me all rows from right table and only rows from left table where condition is true)
-    - if anything from users table is not matching from photos table we are not going to drop it off
-    - ex; if a user has no photos
-    <!-- - if a uf   has null then that row will be included and the values for other rows will be filled with NULL -->
-4.  FULL JOIN. (Give me all rows from both table whether condition is true/false)
-5.  ORDER of table matters **_IMPORTANT_**
-6.  FROM JOIN WHERE is should be used to filter out joined data not FROM WHERE JOIN
+1. INNER JOIN. ( Give me all the rows where condition is true)
+2. LEFT OUTER JOIN (Give me all rows from left table and only rows from right table where condition is true)
+   - if anything from photos table is not matching from users table we are not going to drop it off
+   - ex; photos not related with any user
+   - if a photo has null then that row will be included and the values for other rows will be filled with NULL
+3. RIGHT OUTER JOIN (Give me all rows from right table and only rows from left table where condition is true)
+   - if anything from users table is not matching from photos table we are not going to drop it off
+   - ex; if a user has no photos
+   <!-- - if a uf   has null then that row will be included and the values for other rows will be filled with NULL -->
+4. FULL JOIN. (Give me all rows from both table whether condition is true/false)
+5. ORDER of table matters **_IMPORTANT_**
+6. FROM JOIN WHERE is should be used to filter out joined data not FROM WHERE JOIN
 
 ## THREE WAY JOIN
 
@@ -304,13 +304,13 @@ SELECT columnname, columnname FROM table1 JOIN table2 ON table1.someid=table2.so
 
 ## AGGREGATES
 
-1.  MAX(columnname)
-2.  SUM(columnanme)
-3.  COUNT(columnanme) return no of values
-    - null values are not count by default
-4.  MIN(columnanme)
-5.  AVG(columnanme)
-    **Only aggregate function can access underlying column of a groupped column**
+1. MAX(columnname)
+2. SUM(columnanme)
+3. COUNT(columnanme) return no of values
+   - null values are not count by default
+4. MIN(columnanme)
+5. AVG(columnanme)
+   **Only aggregate function can access underlying column of a groupped column**
 
 > > ## **_WHY?_**
 
