@@ -1,5 +1,13 @@
+
 #include <iostream>
+#include <vector>
 using namespace std;
+
+/*
+A pallindrome is something which is same when read from rtl or ltr.
+for ex: 121 or 121
+1234 or 4321
+*/
 
 class Node
 {
@@ -40,22 +48,32 @@ public:
 		cout << itr->data << " => NULL" << endl;
 	}
 
-	void removeDuplicates()
+	bool isPallindrome()
 	{
 		Node *itr = head;
-		while (itr->next != nullptr)
+		bool isListPallindrome = true;
+		vector<int> vec;
+		while (itr != nullptr)
 		{
-			if (itr->data != itr->next->data)
+			vec.push_back(itr->data);
+			itr = itr->next;
+		}
+		int start = 0;
+		int end = vec.size() - 1;
+		while (start <= end)
+		{
+			if (vec[start] == vec[end])
 			{
-				itr = itr->next;
+				start++;
+				end--;
 			}
 			else
 			{
-				Node *duplicateAddr = itr->next;
-				itr->next = itr->next->next;
-				delete duplicateAddr;
+				isListPallindrome = false;
+				break;
 			}
 		}
+		return isListPallindrome;
 	}
 
 private:
@@ -73,7 +91,8 @@ int main()
 	Sll.push(11);
 	Sll.push(11);
 	Sll.push(11);
+	Sll.push(10);
 	Sll.print();
-	Sll.removeDuplicates();
+	cout << "Given linked list is " << (Sll.isPallindrome() ? "a Pallindrome" : "not a pallindrome") << endl;
 	Sll.print();
 }

@@ -1,9 +1,9 @@
 #include <iostream>
+#include <map>
 using namespace std;
 
 class Node
 {
-
 public:
 	Node *next;
 	int data;
@@ -12,49 +12,49 @@ public:
 
 class LinkedList
 {
-
 public:
 	LinkedList() : head(nullptr), tail(nullptr){};
 	void push(int data)
 	{
 		Node *newNode = new Node(data);
 		if (head == nullptr)
-		{
 			head = tail = newNode;
-		}
 		else
 		{
 			tail->next = newNode;
 			tail = newNode;
 		}
 	}
-
 	void print()
 	{
-		Node *itr = head;
-		while (itr->next != nullptr)
+		Node *tmp = head;
+		while (tmp != nullptr)
 		{
-			cout << itr->data << " => ";
-			itr = itr->next;
+			cout << tmp->data << " => ";
+			tmp = tmp->next;
 		}
-		cout << itr->data << " => NULL" << endl;
+		cout << "NULL" << endl;
 	}
 
-	void removeDuplicates()
+	void removeDup()
 	{
-		Node *itr = head;
-		while (itr->next != nullptr)
+		map<int, bool> visited;
+		Node *prev = head;
+		Node *tmp = head;
+		while (tmp != nullptr)
 		{
-			if (itr->data != itr->next->data)
-			{
-				itr = itr->next;
-			}
+			if (!visited[tmp->data])
+				visited[tmp->data] = true;
 			else
 			{
-				Node *duplicateAddr = itr->next;
-				itr->next = itr->next->next;
-				delete duplicateAddr;
+				prev->next = tmp->next;
+				delete tmp;
+				tmp = prev;
 			}
+
+			if (tmp != head && prev != tmp)
+				prev = prev->next;
+			tmp = tmp->next;
 		}
 	}
 
@@ -69,11 +69,15 @@ int main()
 	LinkedList Sll;
 	Sll.push(10);
 	Sll.push(11);
+	Sll.push(10);
+	Sll.push(10);
+	Sll.push(14);
+	Sll.push(10);
 	Sll.push(11);
-	Sll.push(11);
-	Sll.push(11);
-	Sll.push(11);
+	Sll.push(14);
+	Sll.push(15);
+
 	Sll.print();
-	Sll.removeDuplicates();
+	Sll.removeDup();
 	Sll.print();
 }
