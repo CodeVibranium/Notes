@@ -73,7 +73,7 @@ public:
 	void reverse()
 	{
 		Node *prev = nullptr;
-		Node *curr = head;
+		Node *curr = head ;
 		Node *next = nullptr;
 		while (curr != nullptr)
 		{
