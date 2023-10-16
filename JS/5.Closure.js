@@ -1,6 +1,7 @@
 function giveValue(n) {
   return function takeValue(m) {
-    return n + m;
+    n = n + m;
+    return n;
   };
 }
 

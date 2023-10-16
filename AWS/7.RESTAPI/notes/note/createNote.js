@@ -2,6 +2,7 @@ const db = require("../db");
 const { v4: uuidv4 } = require("uuid");
 
 async function createNote(event, context, cb) {
+  console.log("EVENT", event);
   let data = JSON.parse(event.body);
   try {
     const inputData = {

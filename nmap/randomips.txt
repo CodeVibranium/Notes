@@ -1,0 +1,602 @@
+# Nmap 7.94 scan initiated Sun Oct  1 21:37:49 2023 as: nmap -sS -iR 100 -p 80 -Pn -oN randomips.txt 443
+Nmap scan report for 142.173.240.161
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 218.183.215.253
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for adsl1500-107.dyn249.pacific.net.sg (210.24.249.107)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ip72-201-227-95.ph.ph.cox.net (72.201.227.95)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 25.72.212.85
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 130.81.3.246
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 36.38.170.173
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ai126252127069.4.access-internet.ne.jp (126.252.127.69)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 38.95.49.221
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 48.135.1.100
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 223.sub-97-189-65.myvzw.com (97.189.65.223)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ip-184-201-63-9.miamfl.spcsdns.net (184.201.63.9)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 198.111.75.167
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 29.156.142.68
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 74-207-41-38.nat.luther.edu (74.207.41.38)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 147.103.221.141
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for c-73-171-124-215.hsd1.va.comcast.net (73.171.124.215)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for c-73-236-205-96.hsd1.pa.comcast.net (73.236.205.96)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 41.189.182.159
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ec2-63-33-40-28.eu-west-1.compute.amazonaws.com (63.33.40.28)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 208.62.219.240
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for w099.z209220092.nyc-ny.dsl.cnc.net (209.220.92.99)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 211.243.179.66
+Host is up (0.14s latency).
+
+PORT   STATE  SERVICE
+80/tcp closed http
+
+Nmap scan report for 199.241.37.245
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for dynamic-ip-adsl.viettel.vn (171.245.104.173)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 209.9.191.6
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 149.183.216.32
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ho221-121-212-49.ccnetmie.ne.jp (221.121.212.49)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 150.104.153.76
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for dynamic-002-209-071-191.2.209.pool.telefonica.de (2.209.71.191)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ec2-54-95-23-0.ap-northeast-1.compute.amazonaws.com (54.95.23.0)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 104.161.236.185
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 51.140.203.55
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for xxb133-136.entelchile.net (181.43.133.136)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 143.146.42.250
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 170.209.244.209
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 190.98.154.162
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 173-31-184-104.client.mchsi.com (173.31.184.104)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 180.79.129.49
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 164.128.55.244
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 178-190-119-12.hdsl.highway.telekom.at (178.190.119.12)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 102.17.153.70
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for pool-96-237-23-195.bstnma.east.verizon.net (96.237.23.195)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for cpe-101-175-13-89.bpxt-r-037.ken.nsw.bigpond.net.au (101.175.13.89)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 207.97.4.182
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 152.234.205.127
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 33.100.50.53
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 189.22.192.17
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 7.46.166.213
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 171.195.180.187
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 192.42.9.166
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for h16.27.40.69.dynamic.ip.windstream.net (69.40.27.16)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 25.84.152.240
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 8.171.125.36
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 69.89.224.115
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 5.7.174.197
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 105-225-154-126.south.dsl.telkomsa.net (105.225.154.126)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for vc-kzn-41-8-237-38.umts.vodacom.co.za (41.8.237.38)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 201.77.245.121
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 119.1.41.56
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 32.79.235.98
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 134.230.135.207
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ec2-52-18-94-65.eu-west-1.compute.amazonaws.com (52.18.94.65)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 57.25.147.195
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 57.228.137.206
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 68-70-68-71.static.kc.surewest.net (68.70.68.71)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for bzq-79-183-45-76.red.bezeqint.net (79.183.45.76)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 85.239.94.50
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 101.126.44.36
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 16.10.41.104
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 143.223.4.150
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 150.19.145.136
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 63.68.147.100
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 48.6.78.245
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for ip-address-pool-xxx.fpt.vn (118.71.16.135)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 98.159.190.254.dsl.venturecomm.net (98.159.190.254)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 43.20.122.7
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 190.113.198.116
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 44.133.71.203
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for lloyddigisign.scss.tcd.ie (134.226.41.15)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 13.195.205.223
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 30.244.123.65
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 20.104.100.54
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for IP-094016089068.dynamic.medianet-world.de (94.16.89.68)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 134.9.80.1
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 163.141.132.109
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 78.103.113.246
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for host86-002.gville.dmisinetworks.com (66.21.86.2)
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 189.88.147.107
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 171.212.104.114
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 54.0.184.77
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 101.41.121.102
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 21.149.154.189
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 48.59.136.230
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 171.95.52.34
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 150.14.82.251
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 138.214.189.119
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 137.143.49.184
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 166.69.17.41
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+Nmap scan report for 162.124.31.239
+Host is up.
+
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+# Nmap done at Sun Oct  1 21:38:25 2023 -- 100 IP addresses (100 hosts up) scanned in 36.42 seconds

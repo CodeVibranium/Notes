@@ -1,0 +1,16 @@
+version: "3"
+services:
+  service_A:
+    image: nginx
+    networks:
+      - netA
+  service_B:
+    image: mysql
+    networks:
+      - netA
+  service_C:
+    image: redis
+    networks:
+      - netA
+networks:
+  netA: {}

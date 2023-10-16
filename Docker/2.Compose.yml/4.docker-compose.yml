@@ -1,0 +1,33 @@
+version: "3"
+services:
+  react-app:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - nodejs-app
+    networks:
+      - frontend
+  nodejs-app:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_CONNECTION=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST_NAME}:5432/${POSTGRES_DB}";
+    depends_on:
+      - db
+    networks:
+      - frontend
+      - backend
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=userxyz
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=mydb2
+      - POSTGRES_HOST_NAME= YourHostname
+    networks:
+      - backend
+networks:
+  - frontend: {}
+  - backend: {}

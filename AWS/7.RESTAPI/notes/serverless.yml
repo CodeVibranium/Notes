@@ -15,11 +15,14 @@ provider:
   #     Resource: !GetAtt notesTable.Arn
 
 functions:
+  authorizer:
+    handler: authorizer.authorize
+
   createNote:
     handler: handler.createNote
     enviornment:
       NOTES_TABLE_NAME: !Ref notesTable
-      AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+      AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1 # used to keep-connection alive
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -29,6 +32,8 @@ functions:
       - http:
           method: POST
           path: notes
+          authorizer: authorizer
+
   updateNote:
     handler: handler.updateNote
     environment:
@@ -42,6 +47,8 @@ functions:
       - http:
           method: PUT
           path: notes/{id}
+          authorizer: authorizer
+
   getANote:
     handler: handler.getANote
     environment:
@@ -55,6 +62,8 @@ functions:
       - http:
           method: GET
           path: notes/{id}
+          authorizer: authorizer
+
   getAllNotes:
     handler: handler.getAllNotes
     environment:
@@ -68,6 +77,8 @@ functions:
       - http:
           method: GET
           path: notes
+          authorizer: authorizer
+
   deleteANote:
     handler: handler.deleteANote
     environment:
@@ -81,6 +92,13 @@ functions:
       - http:
           method: DELETE
           path: notes/{id}
+          authorizer: authorizer
+  # userLogin:
+  #   handler: handler.login
+  #   events:
+  #     - method: POST
+  #       path: login
+  # thought of using this, but we can use congito pool, oauth2
 
 plugins:
   - serverless-iam-roles-per-function

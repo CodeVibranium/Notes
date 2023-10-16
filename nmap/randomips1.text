@@ -1,0 +1,24 @@
+Spoofing MAC address DE:AD:BE:EF:CA:FE (No registered vendor)
+# Nmap 7.94 scan initiated Sun Oct  1 21:48:01 2023 as: nmap -sS -iR 100 -p 80,443 -Pn -D 166.69.17.41 --spoof-mac DE:AD:BE:EF:CA:FE --open -oN randomips1.text 162.124.31.239 137.143.49.184 138.214.189.119
+Nmap scan report for 197.92-221-72.customer.lyse.net (92.221.72.197)
+Host is up (0.23s latency).
+Not shown: 1 filtered tcp port (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap scan report for 83.141.231.194
+Host is up (0.17s latency).
+Not shown: 1 filtered tcp port (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT    STATE SERVICE
+443/tcp open  https
+
+Nmap scan report for 14.82.90.34.bc.googleusercontent.com (34.90.82.14)
+Host is up (0.20s latency).
+Not shown: 1 filtered tcp port (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT    STATE SERVICE
+443/tcp open  https
+
+# Nmap done at Sun Oct  1 21:48:35 2023 -- 100 IP addresses (100 hosts up) scanned in 34.02 seconds

@@ -2,6 +2,7 @@ const db = require("../db");
 const NOTES_TABLE_NAME = process.env.NOTES_TABLE_NAME;
 async function getAllNotes(event, context, cb) {
   console.log("NOTES_TABLE_NAME", NOTES_TABLE_NAME);
+  console.log("event \n", JSON.stringify(event));
   try {
     const params = {
       TableName: NOTES_TABLE_NAME || "notes",

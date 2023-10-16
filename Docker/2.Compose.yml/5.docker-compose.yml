@@ -1,0 +1,27 @@
+version: "3"
+services:
+  node-app:
+    build: ./node_service
+    ports:
+      - 3002
+    depends_on:
+      - redis_db
+    networks:
+      - backend
+      - db
+  flask-app:
+    build: ./python_service
+    ports:
+      - 3003
+    depends_on:
+      - redis_db
+    networks:
+      - backend
+      - db
+  redis_db:
+    image: redis
+    networks:
+      - db
+networks:
+  backend: {}
+  db: {}
