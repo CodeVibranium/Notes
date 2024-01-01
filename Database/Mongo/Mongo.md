@@ -11,6 +11,8 @@ Every document will be have a unq id by default
 
 A document can have properties whose values themselves can be a document called as nested document. (nested array of documents)
 
+<!-- mongodb://localhost:27017/<database> -->
+
 ## Spin Mongo shell
 
 1. `mongosh` step into shell
@@ -80,7 +82,10 @@ A document can have properties whose values themselves can be a document called 
 
    ```js
    db.books.updateOne({ whichBookToUpdate }, { $set: { rating: 5 } });
-   db.books.updateOne({ _id: "ID" }, { $set: { rating: 5, pages: 360, title: "NEW NAME" } });
+   db.books.updateOne(
+     { _id: "ID" },
+     { $set: { rating: 5, pages: 360, title: "NEW NAME" } }
+   );
    ```
 
    This operation will find the book by that id and will update the rating and pages value of that book only.
@@ -88,7 +93,10 @@ A document can have properties whose values themselves can be a document called 
 2. updateMany()
 
    ```js
-   db.books.updateMany({ author: "autnorName" }, { $set: { authorName: "authorname" } });
+   db.books.updateMany(
+     { author: "autnorName" },
+     { $set: { authorName: "authorname" } }
+   );
    ```
 
    this operation will find all the books writtebn by author name and update the anuthorName field by the value
@@ -148,7 +156,10 @@ A document can have properties whose values themselves can be a document called 
 
 10. Each Operator (can add/remove multiple at once)
     ```js
-    db.books.updateOne({ _id: "ID" }, { $push: { genres: { $each: ["a", "b", "c"] } } });
+    db.books.updateOne(
+      { _id: "ID" },
+      { $push: { genres: { $each: ["a", "b", "c"] } } }
+    );
     ```
     This operation will a,b,c to the generes field on the id document
 
